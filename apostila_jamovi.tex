@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage[scale=1.5]{ccicons}
 \graphicspath{{imagens/}}
 
 \titleformat{\chapter}[display]
@@ -30,13 +31,12 @@ pdfkeywords={Jamovi, Estatística, Análise de Dados}
 
 \begin{document}
 
-\frontmatter
-\title{Apostila de Jamovi}
-\author{Erick Faria}
-\date{\today}
-\maketitle
+\input{capitulos/capa.tex}
+\cleardoublepage
+\input{capitulos/atribuicao.tex}
 
 \tableofcontents
+
 
 \mainmatter
 
