@@ -33,8 +33,4 @@ Cada capítulo apresenta uma combinação de explicações teóricas e exemplos 
 Este repositório está aberto a contribuições. Se você encontrar erros, tiver sugestões de melhoria ou desejar adicionar mais conteúdo relevante, sinta-se à vontade para enviar uma solicitação de pull. Seu feedback é valioso e ajudará a aprimorar ainda mais esta apostila.
 
 
-## Licença
 
-Este projeto é licenciado sob a licença [MIT](LICENSE). Fique à vontade para compartilhar, modificar e distribuir o conteúdo deste repositório, desde que a atribuição adequada seja fornecida.
-
-Esperamos que esta apostila seja útil para aqueles que desejam aprender e aplicar análises estatísticas com o Jamovi. Aproveite o conteúdo e bons estudos!
