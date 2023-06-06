@@ -3,21 +3,23 @@
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage{tikz}
 \usepackage[scale=1.5]{ccicons}
 \graphicspath{{imagens/}}
 
+% Define o estilo de início do capítulo
 \titleformat{\chapter}[display]
   {\normalfont\huge\bfseries\filcenter}
-  {\titlerule[1pt]%
-   \vspace{1pt}%
-   \titlerule
-   \vspace{1pc}%
-   \LARGE\MakeUppercase{\chaptertitlename} \thechapter}
-  {1pc}
-  {\titlerule
-   \vspace{1pc}%
-   \Huge}
+  {\begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west,inner sep=0pt] at (current page.north west)
+      {\includegraphics[width=\paperwidth,height=0.2\paperheight]{imagens/fundo_cap.pdf}};
+    \fill[white,opacity=0] (current page.north west) rectangle (current page.south east);
+    \draw[anchor=north west] (0.2\paperwidth,0.2\paperheight) node [font=\Huge\bfseries] {\chaptertitlename\ \thechapter};
+  \end{tikzpicture}}
+  {0pt}
+  {\Huge}
 
+  % Define os metadados do documento
 \hypersetup{
 colorlinks=true,
 linkcolor=blue,
