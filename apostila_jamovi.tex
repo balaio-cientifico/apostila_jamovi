@@ -1,0 +1,26 @@
+\documentclass{book}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\graphicspath{{imagens/}}
+
+\begin{document}
+
+\frontmatter
+\title{My Book}
+\author{Me}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\mainmatter
+\chapter{Chapter 1}
+\input{capitulos/capitulo_1.tex}
+
+\chapter{Chapter 2}
+\input{capitulos/capitulo_2.tex}
+
+\backmatter
+% bibliography, index, etc.
+
+\end{document}
