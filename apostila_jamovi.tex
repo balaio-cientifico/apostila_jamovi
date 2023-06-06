@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage[scale=1.5]{ccicons}
 \graphicspath{{imagens/}}
 
 \titleformat{\chapter}[display]
@@ -22,21 +23,20 @@ colorlinks=true,
 linkcolor=blue,
 filecolor=magenta,      
 urlcolor=blue,
-pdftitle={My Book},
-pdfauthor={Me},
-pdfsubject={},
-pdfkeywords={}
+pdftitle={Apostila de Jamovi},
+pdfauthor={Erick Faria},
+pdfsubject={Apostila de Jamovi},
+pdfkeywords={Jamovi, Estatística, Análise de Dados}
 }
 
 \begin{document}
 
-\frontmatter
-\title{My Book}
-\author{Me}
-\date{\today}
-\maketitle
+\input{capitulos/capa.tex}
+\cleardoublepage
+\input{capitulos/atribuicao.tex}
 
 \tableofcontents
+
 
 \mainmatter
 
