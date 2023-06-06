@@ -1,10 +1,16 @@
-\documentclass{book}
+\documentclass[12pt]{book}
+
+% Pacotes necessários
 \usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[scale=1.5]{ccicons}
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage{float}
 \usepackage{tikz}
-\usepackage[scale=1.5]{ccicons}
+
+% Define o caminho das imagens
 \graphicspath{{imagens/}}
 
 % Define o estilo de início do capítulo
@@ -19,7 +25,7 @@
   {0pt}
   {\Huge}
 
-  % Define os metadados do documento
+% Define os metadados do documento
 \hypersetup{
 colorlinks=true,
 linkcolor=blue,
@@ -33,19 +39,30 @@ pdfkeywords={Jamovi, Estatística, Análise de Dados}
 
 \begin{document}
 
+% Inclui a capa
 \input{capitulos/capa.tex}
-\cleardoublepage
+
+% Define a numeração das páginas em romanos
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% Inclui a página de atribuição
 \input{capitulos/atribuicao.tex}
 
+% Define o nome do sumário
+\renewcommand{\contentsname}{Sumário}
+
+% Inclui o sumário
 \tableofcontents
 
+% Define a numeração das páginas em arábicos
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
-\mainmatter
-
+% Inclui o primeiro capítulo
 \input{capitulos/capitulo_1.tex}
-% \input{capitulos/capitulo_2.tex}
 
+% Define o final do documento
 \backmatter
-% bibliography, index, etc.
 
 \end{document}
