@@ -1,7 +1,32 @@
 \documentclass{book}
 \usepackage[portuguese]{babel}
 \usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{hyperref}
 \graphicspath{{imagens/}}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\filcenter}
+  {\titlerule[1pt]%
+   \vspace{1pt}%
+   \titlerule
+   \vspace{1pc}%
+   \LARGE\MakeUppercase{\chaptertitlename} \thechapter}
+  {1pc}
+  {\titlerule
+   \vspace{1pc}%
+   \Huge}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,      
+urlcolor=blue,
+pdftitle={My Book},
+pdfauthor={Me},
+pdfsubject={},
+pdfkeywords={}
+}
 
 \begin{document}
 
