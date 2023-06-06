@@ -6,9 +6,25 @@
 \usepackage[scale=1.5]{ccicons}
 \usepackage{graphicx}
 \usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{kpfonts}
+\usepackage{fontawesome5}
+
+\usefont{T1}{jkpss}{m}{n}
+
+\geometry{
+  left=3cm,
+  right=2cm,
+  top=3cm,
+  bottom=2cm,
+  bindingoffset=0cm
+}
+
+\onehalfspacing
 
 % Define o caminho das imagens
 \graphicspath{{imagens/}}
@@ -38,6 +54,7 @@ pdfkeywords={Jamovi, Estatística, Análise de Dados}
 }
 
 \begin{document}
+\let\cleardoublepage\clearpage
 
 % Inclui a capa
 \input{capitulos/capa.tex}
