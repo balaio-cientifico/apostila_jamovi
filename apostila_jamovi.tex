@@ -1,4 +1,4 @@
-\documentclass[12pt]{book}
+\documentclass[12pt, oneside]{book}
 
 % Pacotes necessários
 \usepackage[portuguese]{babel}
@@ -8,11 +8,27 @@
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage{geometry}
+\usepackage{indentfirst}
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{kpfonts}
 \usepackage{fontawesome5}
+\usepackage{fancyhdr}
+\usepackage{subfigure}
+
+% Define o estilo da página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{Erick Faria}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\href{https://www.balaiocientifico.com/}{Balaio Científico}}
+\fancyhead[R]{\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+% Redefine o comando \chaptermark para remover o prefixo "Chapter X."
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
 
 \usefont{T1}{jkpss}{m}{n}
 
@@ -78,6 +94,11 @@ pdfkeywords={Jamovi, Estatística, Análise de Dados}
 
 % Inclui o primeiro capítulo
 \input{capitulos/capitulo_1.tex}
+\input{capitulos/capitulo_2.tex}
+\input{capitulos/capitulo_3.tex}
+\input{capitulos/capitulo_4.tex}
+\input{capitulos/capitulo_5.tex}
+\input{capitulos/capitulo_6.tex}
 
 % Define o final do documento
 \backmatter
