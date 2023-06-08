@@ -16,6 +16,15 @@
 \usepackage{fontawesome5}
 \usepackage{fancyhdr}
 \usepackage{subfigure}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[backend=biber, style=abnt, 
+giveninits=true, uniquename=init]{biblatex}
+
+\addbibresource{bibliografia.bib}
+
+\usetikzlibrary{intersections}
 
 % Define o estilo da página
 \pagestyle{fancy}
@@ -61,7 +70,8 @@
 \hypersetup{
 colorlinks=true,
 linkcolor=blue,
-filecolor=magenta,      
+filecolor=blue,
+citecolor=blue,      
 urlcolor=blue,
 pdftitle={Apostila de Jamovi},
 pdfauthor={Erick Faria},
@@ -99,6 +109,8 @@ pdfkeywords={Jamovi, Estatística, Análise de Dados}
 \input{capitulos/capitulo_4.tex}
 \input{capitulos/capitulo_5.tex}
 \input{capitulos/capitulo_6.tex}
+
+\printbibliography
 
 % Define o final do documento
 \backmatter
