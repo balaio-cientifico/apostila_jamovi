@@ -66,6 +66,72 @@ Para calcular a média no Jamovi, você pode seguir as etapas abaixo:
 
 A moda é uma medida de tendência central na estatística descritiva que representa o valor ou valores que ocorrem com maior frequência em um conjunto de dados. Em outras palavras, a moda indica o valor mais comum ou popular em um conjunto de observações.
 
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        % Define o círculo
+        \draw (0,0) circle (2cm);
+
+        % Define os números
+        \def\numbers{{1, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10}}
+        
+        % Define a distância mínima entre os números
+        \def\minDistance{0.4} % Ajuste o valor conforme necessário
+        
+        % Define o raio máximo permitido
+        \def\maxRadius{1.6} % Ajuste o valor conforme necessário
+
+        % Desenha os números
+        \foreach \i in {1,...,11} {
+            % Obtém o número atual
+            \pgfmathparse{\numbers[\i-1]}
+            \let\number\pgfmathresult
+            
+            % Define um ângulo e um raio aleatórios
+            \pgfmathsetmacro{\angle}{rnd*360}
+            \pgfmathsetmacro{\radius}{\minDistance + rnd*(\maxRadius-\minDistance)}
+            
+            % Verifica se algum número já ocupa a posição
+            \pgfmathtruncatemacro{\overlap}{0}
+            \foreach \j in {1,...,\i} {
+                \pgfmathparse{\numbers[\j-1]}
+                \let\existingNumber\pgfmathresult
+                \pgfmathparse{atan2(sin(\angle)*\radius-sin(\numbers[\j-1])*2,cos(\angle)*\radius-cos(\numbers[\j-1])*2)}
+                \pgfmathtruncatemacro{\angleDiff}{\pgfmathresult}
+                \ifnum\angleDiff=0
+                    \ifnum\number=\existingNumber
+                        \pgfmathtruncatemacro{\overlap}{1}
+                    \fi
+                \fi
+                \ifnum\angleDiff=0
+                    \ifdim\radius pt<\minDistance pt
+                        \pgfmathtruncatemacro{\overlap}{1}
+                    \fi
+                \fi
+            }
+            
+            % Verifica se o número é igual a 6 e não há sobreposição
+            \ifnum\number=6
+                \ifnum\overlap=0
+                    % Se for igual a 6 e não houver sobreposição, desenha o número em vermelho
+                    \node[text=red, circle, minimum size=0.3cm] at (\angle:\radius cm) {\number};
+                \else
+                    % Se houver sobreposição, não desenha o número
+                \fi
+            \else
+                % Caso contrário, desenha o número normalmente
+                \ifnum\overlap=0
+                    \node[circle, minimum size=0.3cm] at (\angle:\radius cm) {\number};
+                \else
+                    % Se houver sobreposição, não desenha o número
+                \fi
+            \fi
+        }
+    \end{tikzpicture}
+\end{center}
+
+
+
+
 Ao contrário da média, que é calculada a partir da soma de todos os valores dividida pelo número de observações, a moda é determinada pela identificação do valor ou valores que aparecem com maior frequência. Pode haver um único valor de moda, conhecido como moda unimodal, ou pode haver mais de um valor de moda, chamado de moda bimodal, trimodal ou multimodal.
 
 A moda é especialmente útil quando se lida com dados categóricos ou discretos, como categorias de produtos, cores favoritas, resultados de votações, entre outros. Ela também pode ser aplicada a dados contínuos, embora seja menos comum nesse contexto.
@@ -92,36 +158,36 @@ No Jamovi, calcular a moda pode ser feito seguindo este passo a passo:
 
 \subsection{Mediana}
 
-Suponha que temos a seguinte lista de números: $2, 3, 5, 7, 8, 10, 12$. Para encontrar a mediana, primeiro precisamos ordenar a lista em ordem crescente: $2, 3, 5, 7, 8, 10, 12$. Em seguida, encontramos o valor do meio da lista, que é $7$. Portanto, a mediana desta lista é $7$.
+Suponha que temos a seguinte lista de números: $2, 12, 5, 10, 8, 7, 5$. Para encontrar a mediana, primeiro precisamos ordenar a lista em ordem crescente: $2, 3, 5, 7, 8, 10, 12$. Em seguida, encontramos o valor do meio da lista, que é $7$. Portanto, a mediana desta lista é $7$.
 
-Podemos representar a mediana graficamente usando um histograma. O valor da mediana é o ponto em que a curva do histograma é dividida em duas partes iguais. Veja o exemplo abaixo:
+Podemos representar a mediana graficamente usando um desenho. O valor da mediana é o ponto em qvermelho, onde nós dividimos o conjunto de dados em duas partes iguais. Veja o exemplo abaixo:
 
 \begin{center}
     \begin{tikzpicture}
-    \begin{axis}[
-    ybar,
-    ymin=0,
-    ymax=2,
-    bar width=0.5cm, 
-    xtick=data,
-    xticklabels={$2$,$3$,$5$,$7$,$8$,$10$,$12$},
-    xlabel=Valores,
-    ylabel=Frequência,
-    width=10cm,
-    height=6cm,
-    axis lines=left,
-    enlarge x limits=0.1,
-    enlarge y limits=0,
-    clip=false
-    ]
-    \addplot[fill=blue!50] coordinates {
-    (2,1) (3,1) (5,1) (7,2) (8,1) (10,1) (12,1)
-    };
-    \draw[dashed] (axis cs:7,0) -- (axis cs:7,2);
-    \draw[red, dashed, ultra thick] (axis cs:7,0) -- (axis cs:7,2);
-    \end{axis}
-    \end{tikzpicture}
+      % Define the boxes
+      \draw (0,0) rectangle (1,1);
+      \draw (1.5,0) rectangle (2.5,1);
+      \draw (3,0) rectangle (4,1);
+      \draw [red] (4.5,0) rectangle (5.5,1);
+      \draw (6,0) rectangle (7,1) node[midway] {7};
+      \draw (7.5,0) rectangle (8.5,1);
+      \draw (9,0) rectangle (10,1);
+      
+      % Label the boxes
+      \node at (0.5,0.5) {2};
+      \node at (2,0.5) {3};
+      \node at (3.5,0.5) {5};
+      \node at (5,0.5) {7};
+      \node at (6.5,0.5) {8};
+      \node at (8,0.5) {10};
+      \node at (9.5,0.5) {12};
+      
+      % Label the median
+      \node[red] at (5.0,-0.30) {Mediana};
+    \end{tikzpicture} 
 \end{center}
+    
+    
 
 Neste exemplo, a mediana é $7$, que é o ponto em que a curva do histograma é dividida em duas partes iguais.
 
