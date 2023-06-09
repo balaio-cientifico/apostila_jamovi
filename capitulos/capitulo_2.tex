@@ -14,6 +14,10 @@ Por fim, abordaremos a criação de relatórios de estatísticas descritivas no 
 
 Ao final deste capítulo, você terá adquirido as habilidades necessárias para realizar análises de estatística descritiva no Jamovi. Você estará apto a utilizar as diversas ferramentas e recursos oferecidos pelo software para explorar e descrever seus dados de forma eficiente e precisa. A estatística descritiva no Jamovi será uma poderosa aliada em suas análises e na comunicação clara dos resultados obtidos.
 
+\begin{tcolorbox}[colback=white,colframe=green,title= Dica de Conteúdo]
+    Essa apostila não é um livro de estatística. Ela é um guia de como utilizar o Jamovi para realizar análises estatísticas. Se você não conhece os conceitos estatísticos, recomendo que você estude os conceitos antes de utilizar o Jamovi. Nessa apostila eu cito algumas bibliografias que podem te ajudar a entender os conceitos estatísticos. Visite a parte de Bibliografia e leia os livros indicados caso você julgue necessário. Entretanto, durante as sessões eu faço uma breve introdução aos conceitos estatísticos para que você possa entender o que está sendo feito no Jamovi.
+  \end{tcolorbox}
+
 A estatística descritiva é uma parte fundamental da análise de dados, pois oferece uma visão geral e resumida das características dos dados. No Jamovi, um software estatístico de código aberto e amigável, você pode encontrar várias ferramentas e recursos para realizar estatística descritiva de maneira eficiente.
 
 Ao utilizar o Jamovi, você pode importar seus dados ou inseri-los diretamente na planilha. Em seguida, você pode explorar as diversas opções disponíveis para realizar análises descritivas. Alguns dos recursos mais comuns incluem:
@@ -64,6 +68,10 @@ Para calcular a média no Jamovi, você pode seguir as etapas abaixo:
 \subsection{Moda}
 
 A moda é uma medida de tendência central na estatística descritiva que representa o valor ou valores que ocorrem com maior frequência em um conjunto de dados. Em outras palavras, a moda indica o valor mais comum ou popular em um conjunto de observações \parencite{Triola2017}.
+
+\[
+\text{moda} = \text{valor mais frequente na amostra}
+\]
 
 No conjunto de dados representado dentro do círculo abaixo (\ref{fig:circulo_moda}), cada número é desenhado em uma posição aleatória dentro do círculo. Analisando os números desenhados, podemos observar que o número 6 ocorre duas vezes, mais do que qualquer outro número no conjunto. Portanto, podemos concluir que o número 6 é a moda desse conjunto de dados.
 
@@ -153,10 +161,6 @@ No Jamovi, calcular a moda pode ser feito seguindo este passo a passo:
     \item Caso o conjunto de dados não apresente um valor de moda claro (todos os valores ocorrem apenas uma vez ou não há valores que se repitam com maior frequência), o Jamovi indicará a ausência de moda na tabela de resultados.
 \end{enumerate}
 
-\[
-\text{moda} = \text{valor mais frequente na amostra}
-\]
-
 \subsection{Mediana}
 
 Suponha que temos a seguinte lista de números: $2, 12, 5, 10, 8, 7, 5$. Para encontrar a mediana, primeiro precisamos ordenar a lista em ordem crescente: $2, 3, 5, 7, 8, 10, 12$. Em seguida, encontramos o valor do meio da lista, que é $7$. Portanto, a mediana desta lista é $7$.
@@ -188,7 +192,6 @@ Podemos representar a mediana graficamente usando um desenho. O valor da mediana
     \end{tikzpicture} 
 \end{center}
     
-    
 
 Neste exemplo, a mediana é $7$, que é o ponto em que a curva do histograma é dividida em duas partes iguais.
 
@@ -201,6 +204,42 @@ As medidas de dispersão são estatísticas utilizadas na análise descritiva pa
 \subsection{Desvio Padrão}
 
 O desvio padrão é uma medida estatística que indica a dispersão ou variabilidade dos valores em relação à média de um conjunto de dados. Ele fornece uma medida da diferença média entre cada valor e a média do conjunto de dados \parencite{Triola2017}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=latex]
+        % Eixo
+        \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+        \draw[->] (0,-0.5) -- (0,3) node[above] {Frequência};
+    
+        % Pontos de dados
+        \foreach \x/\y in {-2/0.5, -1/1.5, 0/2, 1/1, 2/0.5} {
+        \fill (\x,\y) circle (2pt);
+        }
+    
+        % Linhas verticais
+        \foreach \x/\y in {-2/0.5, -1/1.5, 0/2, 1/1, 2/0.5} {
+        \draw[dashed] (\x,\y) -- (\x,0);
+        }
+    
+        % Média
+        \draw[dashed, red] (0,0) -- (0,2.5) node[right, red] {$\bar{x}$};
+    
+        % Desvio Padrão
+        \draw[<->] (-1.5,-0.3) -- (1.5,-0.3) node[midway, below] {Desvio Padrão};
+    
+        % Linhas de Desvio
+        \draw[blue, <->] (-1,0) -- (-1,1.5) node[midway, left] {$\sigma$};
+        \draw[blue, <->] (1,0) -- (1,1) node[midway, right] {$\sigma$};
+
+         % Legenda
+         \node at (0,-1.5) {\begin{tabular}{@{}c@{ }l@{}}
+            \tikz\draw[blue] (0,0) -- (0.5,0); & $\sigma$ - Desvio padrão\\
+            \tikz\draw[red, dashed] (0,0) -- (0.5,0); & $\bar{x}$ - Média
+            \end{tabular}};
+    
+    \end{tikzpicture}
+\end{figure}
 
 O desvio padrão é calculado em duas etapas principais: primeiro, calcula-se a diferença entre cada valor e a média; em seguida, essas diferenças são somadas, elevadas ao quadrado, e a média desses quadrados é calculada. A raiz quadrada dessa média é o desvio padrão.
 
