@@ -105,7 +105,7 @@ Veja na Figura~\ref{fig:criar_categoria_jamovi_5}, o local em que você deve sel
     \label{fig:criar_categoria_jamovi_5}
 \end{figure}
 
-Vamos entender a lógica que o Jamovi utiliza para criar categorias. O Jamovi avalia as condições em sequência, considerando a condição anterior. Por exemplo, ao definir a cidade pequena como sendo aquela com população menor ou igual a 20.000, basta escrever <= 20000. Ao prosseguir para a classificação das cidades médias, escrevemos <= 100000. O Jamovi, automaticamente, entende que esta condição deve ser contada a partir de 20.001 até 100.000, dado que a classificação anterior já contemplou as cidades com população menor ou igual a 20.000.
+Vamos entender a lógica que o Jamovi utiliza para criar categorias. O Jamovi avalia as condições em sequência, considerando a condição anterior.  Por exemplo, ao definir a categoria "Pequena" para cidades com população menor ou igual a 20.000 habitantes, inserimos a expressão $\leqslant 20000$. Em seguida, para classificar as cidades de tamanho "Médio", utilizamos a expressão $\leqslant 100000$. Neste momento, o Jamovi, automaticamente, entende que esta condição se refere à população que varia de 20.001 a 100.000 habitantes, já que a classificação anterior já considerou as cidades com população menor ou igual a 20.000.
 
 Na última condição, vamos utilizar o operador ELSE para definir as cidades grandes, pois agora só restam elas a serem classificadas. 
 
